@@ -1,2 +1,3 @@
-# js-practice
+## Javascript Practice
+
 Javascript practices through frontend master.
