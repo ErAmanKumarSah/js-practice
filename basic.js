@@ -1,69 +1,69 @@
-var box = {};
-undefined
-box.book = "react";
-"react"
-box.book;
-"react"
-var cb = box.book;
-undefined
+	var box = {};
+	undefined
+	box.book = "react";
+	"react"
+	box.book;
+	"react"
+	var cb = box.book;
+	undefined
 
-box.book = "node";
-"node"
+	box.book = "node";
+	"node"
 
-cb;
-"react"
+	cb;
+	"react"
 
-box.book;
-"react"
+	box.book;
+	"react"
 
-box.size;
-undefined
+	box.size;
+	undefined
 
-box['book'] = "react";
-"react"
+	box['book'] = "react";
+	"react"
 
-var cb = box["book"];
-undefined
+	var cb = box["book"];
+	undefined
 
-var key = "book"
-undefined
+	var key = "book"
+	undefined
 
-box[key];
-"react"
+	box[key];
+	"react"
 
-console.log(key);
-book
-undefined
+	console.log(key);
+	book
+	undefined
 
-var func = function(){
-return "book"
-}
-undefined
+	var func = function(){
+	return "book"
+	}
+	undefined
 
-box[func()];
-"react"
+	box[func()];
+	"react"
 
-box['key'];
-undefined
+	box['key'];
+	undefined
 
-box[key];
-"react"
+	box[key];
+	"react"
 
-box.key;
-undefined
+	box.key;
+	undefined
 
-box[0] = "pdf";
-"pdf"
+	box[0] = "pdf";
+	"pdf"
 
-box["^&*%"] = "test 123"
-"test 123"
+	box["^&*%"] = "test 123"
+	"test 123"
 
-var text = box["^&*%"];
-undefined
+	var text = box["^&*%"];
+	undefined
 
-box["size"] = {"height":5,"width":85};
+	box["size"] = {"height":5,"width":85};
 
-box.area = function(){
-return box.size.height * box.size.width;};
-box.area();
-425
+	box.area = function(){
+	return box.size.height * box.size.width;};
+	box.area();
+	425
