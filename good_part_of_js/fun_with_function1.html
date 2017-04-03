@@ -1,0 +1,96 @@
+<html>
+	<body>
+		<pre>
+			<script>
+				function log(arg) {
+					document.writeln(arg);
+				}
+				function identity(x) {
+					return x;
+				}
+				log(identity(5));
+				console.log(identity(10));
+
+				function funk(f) {
+					f = null;
+				}
+				var y = [];
+				funk(y);
+				log(y);
+				console.log(y);
+
+				function swap(a, b) {
+					var temp = a;
+					a = b;
+					b = temp;
+				}
+				var p =11, q=22;
+				swap(p, q);
+				log(p);
+				console.log(p);
+
+
+				function add(first, second) {
+					return (first + second);
+				}
+				log("addition of 8 & 11 : ");
+				log(add( 8, 11));
+				console.log("addition of 8 & 11 : ");
+				console.log(add(8, 11));
+
+				function sub(first, second) {
+					return (first - second);
+				}
+				log("substracion of 8 & 11 : ");
+				log(sub(8, 11));
+				console.log("substraction of 8 & 11 : ");
+				console.log(sub(8, 11));
+
+				function mul(first, second) {
+					return first * second;
+				}
+				log("multiple of 8 & 11 : ");
+				log(mul(8, 11));
+				console.log("multiple of 8 & 11 : ");
+				console.log(mul(8, 11));
+				
+				function addf(first){
+					return function (second) {
+						return first + second;
+					};
+				}
+				function liftf(binary) {
+					return function (first) {
+						return function (second) {
+							return binary(first, second);
+						};
+					};
+				}
+				var addf = liftf(add);
+				log(addf(4)(7));
+				console.log(addf(4)(7));
+				log(liftf(mul) (5) (6))
+				console.log(liftf(mul) (5) (6))
+
+			</script>
+		</pre>
+	</body>
+</html>
+
+
+Date.UTC(year, month[, day[, hour[, minute[, second[, millisecond]]]]])
+
+year
+A year after 1900.
+month
+An integer between 0 and 11 representing the month.
+day
+Optional. An integer between 1 and 31 representing the day of the month.
+hour
+Optional. An integer between 0 and 23 representing the hours.
+minute
+Optional. An integer between 0 and 59 representing the minutes.
+second
+Optional. An integer between 0 and 59 representing the seconds.
+millisecond
+Optional. An integer between 0 and 999 representing the milliseconds.
