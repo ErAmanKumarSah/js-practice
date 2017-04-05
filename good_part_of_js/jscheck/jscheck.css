@@ -1,0 +1,68 @@
+body {
+    background-color: lightgreen;
+    padding: 5%;
+}
+
+h1 {
+    border-bottom-width: 2pt;
+    border-color: black;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-style: solid;
+    border-top-width: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18pt;
+    font-variant: small-caps;
+    font-weight: bolder;
+    letter-spacing: 4pt;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+    text-align: left;
+}
+
+h2 {
+    border-bottom-width: 1pt;
+    border-color: black;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-style: solid;
+    border-top-width: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18pt;
+    font-variant: normal;
+    font-weight: bold;
+    padding-bottom: 0;
+    text-align: left;
+}
+
+h3 {
+    border-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16pt;
+    font-weight: bold;
+    padding-bottom: 0;
+    text-align: left;
+}
+
+h4 {
+    font-family: Monospace;
+    font-size: 14pt;
+    font-weight: bold;
+    padding-bottom: 0;
+    text-align: left;
+}
+
+i {
+    font-family: serif;
+}
+
+pre {
+    font-family: Monospace;
+    margin-left: 1in;
+}
+
+p {
+    margin-left: 10pt;
+}
