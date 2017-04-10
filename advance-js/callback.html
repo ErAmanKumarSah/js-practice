@@ -4,29 +4,30 @@
 	<title>Callback</title>
 </head>
 <body>
+	<h1>Please open console and see the output</h1>
 
 <script type="text/javascript">
 	setTimeout(function(){
-		console.log("callback in 500ms");
-	},500);
+		console.log("callback in 50ms");
+	},50);
 
 	setTimeout(function(){
-		console.log("callback1 in 1s");
+		console.log("callback1 in .1s");
 		setTimeout(function(){
-			console.log("callback2 in 2s");
+			console.log("callback2 in .2s");
 			setTimeout(function(){
-				console.log("callback3 in 3s");
-			},1000);
-		},1000);
-	},1000);
+				console.log("callback3 in .3s");
+			},100);
+		},200);
+	},300);
 
 	function one(cb) {
 		console.log("one");
-		setTimeout(cb,1000);
+		setTimeout(cb,500);
 	}
 	function two(cb) {
 		console.log("two");
-		setTimeout(cb,1000);
+		setTimeout(cb,500);
 	}
 	function three(cb) {
 		console.log("three");
@@ -35,6 +36,76 @@
 		two(three);
 	});
 
+	function trySomething(ok , err) {
+		setTimeout(function () {
+			var num = Math.random();
+			if(num > 0.5) ok(num);
+			else err(num);
+		},1000);
+	}
+
+	trySomething(
+		function(num){
+			console.log("Success: " + num);
+		},
+		function(num){
+			console.log("Sorry : " + num);
+		}
+		);
+
+	function trySomething1(cb1) {
+		setTimeout(function () {
+			var num = Math.random();
+			if(num > 0.5) cb1(null, num);
+			else cb1("Too low");
+		},1200);
+	}
+	trySomething1(function(errr,num){
+		if(errr){
+			console.log(errr);
+		}
+		else{
+			console.log("Number : " + num);
+		}
+		});
+
+	//async patterns generators
+	function* gen() {
+		console.log("hello");
+		yield null;
+		console.log("world");
+	}
+		var it = gen();
+		it.next();
+		it.next();
+
+	function coroutine(g) {
+		var it = g();
+		return function(){
+			return it.next.apply(it, arguments);
+		};
+	}
+	var run = coroutine(function* (){
+		var x = 1 + (yield null);
+		var y = 1 + (yield null);
+		yield (x + y);
+	});
+		run();
+		run(11);
+		console.log("meaning of life: " + run(33).value);
+
+	function getData(d) {
+		setTimeout(function () { run(d);
+		},1500);
+	}
+	var run = coroutine(function* () {
+		var x = 1 + (yield getData(11));
+		var y = 1 + (yield getData(22));
+		var ans = (yield getData("your age is : " + (x+y)
+		));
+		console.log(ans);
+	});
+	run();
 
 </script>
 </body>
