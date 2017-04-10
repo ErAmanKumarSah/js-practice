@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Callback</title>
+</head>
+<body>
+
+<script type="text/javascript">
+	setTimeout(function(){
+		console.log("callback in 500ms");
+	},500);
+
+	setTimeout(function(){
+		console.log("callback1 in 1s");
+		setTimeout(function(){
+			console.log("callback2 in 2s");
+			setTimeout(function(){
+				console.log("callback3 in 3s");
+			},1000);
+		},1000);
+	},1000);
+
+	function one(cb) {
+		console.log("one");
+		setTimeout(cb,1000);
+	}
+	function two(cb) {
+		console.log("two");
+		setTimeout(cb,1000);
+	}
+	function three(cb) {
+		console.log("three");
+	}
+	one(function(){
+		two(three);
+	});
+
+
+</script>
+</body>
+</html>
