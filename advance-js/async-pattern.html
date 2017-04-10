@@ -1,75 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Callback</title>
+	<title>Async Pattern</title>
 </head>
 <body>
 	<h1>Please open console and see the output</h1>
 
 	<script src="jquery.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
-		setTimeout(function(){
-			console.log("callback in 50ms");
-		},50);
-
-		setTimeout(function(){
-			console.log("callback1 in .1s");
-			setTimeout(function(){
-				console.log("callback2 in .2s");
-				setTimeout(function(){
-					console.log("callback3 in .3s");
-				},100);
-			},200);
-		},300);
-
-		function one(cb) {
-			console.log("one");
-			setTimeout(cb,500);
-		}
-		function two(cb) {
-			console.log("two");
-			setTimeout(cb,500);
-		}
-		function three(cb) {
-			console.log("three");
-		}
-		one(function(){
-			two(three);
-		});
-
-		function trySomething(ok , err) {
-			setTimeout(function () {
-				var num = Math.random();
-				if(num > 0.5) ok(num);
-				else err(num);
-			},1000);
-		}
-
-		trySomething(
-			function(num){
-				console.log("Success: " + num);
-			},
-			function(num){
-				console.log("Sorry : " + num);
-			}
-			);
-
-		function trySomething1(cb1) {
-			setTimeout(function () {
-				var num = Math.random();
-				if(num > 0.5) cb1(null, num);
-				else cb1("Too low");
-			},1200);
-		}
-		trySomething1(function(errr,num){
-			if(errr){
-				console.log(errr);
-			}
-			else{
-				console.log("Number : " + num);
-			}
-			});
-
 		//async patterns generators
 		function* gen() {
 			console.log("hello");
@@ -118,6 +56,18 @@
 		setTimeout(function(){
 			wait.resolve(Math.random());
 		},1700);
+
+		function waitForN(an) {
+			var c = $.Deferred();
+			setTimeout(c.resolve, an);
+			return c.promise();
+		}
+		waitForN(1800).then(function (){
+			console.log("java script");
+			return waitForN(2000);
+		}).then(function(){
+			console.log("seriously... ?");
+		});
 	</script>
 </body>
 </html>
